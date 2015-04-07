@@ -5,6 +5,26 @@
 <title>Service App</title>
 <link rel="stylesheet" href="resources/css/app.css" />
 <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<style>
+#header {
+	background-color: lightblue;
+}
+
+#section {
+	height: 701px;
+	
+}
+
+#footer {
+	color: white;
+	clear: both;
+	text-align: center;
+	background-color: black;
+	padding: 5px;
+}
+</style>
+
 </head>
 <body ng-controller="LoginController">
 	<div id="loginPage" ng-hide="isLogin" class="login">
@@ -21,16 +41,26 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
-	<div id="wrapper" id="homepage" ng-show="isLogin">
-		<ul class="menu">
-			<li><a href="#/cars">Cars</a></li>
-			<li><a href="#/trains">Trains</a></li>
-			<li><a href="#/railwaystations">Railway Station</a></li>
-		</ul>
-		<hr class="" />
+	<div ng-show="isLogin">
+	
+	<div id="header">
+		<div id="wrapper">
+<ul class="nav nav-tabs" role="tablist" id="myTab">
+  <li role="presentation" class="active"><a href="#/cars">Cars</a></li>
+  <li role="presentation"><a href="#/trains">Trains</a></li>
+  <li role="presentation"><a href="#/railwaystations">railwaystations</a></li>
+</ul>
+
+		</div>
+	</div>
+
+
+	<div id="section">
 		<div ng-view></div>
 	</div>
 
+	<div id="footer">Copyright © mportal.com</div>
+</div>
 	<script src="resources/js/lib/angular/angular.js"></script>
 	<script src="resources/js/app.js"></script>
 	<script src="resources/js/services.js"></script>
@@ -40,5 +70,12 @@
 	<script src="resources/js/controllers/TrainController.js"></script>
 	<script src="resources/js/filters.js"></script>
 	<script src="resources/js/directives.js"></script>
+	<script>		
+	$(".nav a").on("click", function(){
+		   $(".nav").find(".active").removeClass("active");
+		   $(this).parent().addClass("active");
+		});
+	
+</script>
 </body>
 </html>
