@@ -1,31 +1,44 @@
 <!doctype html>
 <html lang="en" ng-app="AngularSpringApp">
 <head>
-    <meta charset="utf-8">
-    <title>Service App</title>
-    <link rel="stylesheet" href="resources/css/app.css"/>
-    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+<meta charset="utf-8">
+<title>Service App</title>
+<link rel="stylesheet" href="resources/css/app.css" />
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
 </head>
-<body>
-<div id="wrapper">
+<body ng-controller="LoginController">
+	<div id="loginPage" ng-hide="isLogin" class="login">
+		<div ng-show="error" class="error">There was a problem logging in. Please try	again.</div>
+		<form role="form" ng-submit="login()">
+			<div>
+				<label for="username">Username:</label> <input type="text"
+					id="username" name="username" ng-model="username" />
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label> <input type="password"
+					id="password" name="password" ng-model="password" />
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+	<div id="wrapper" id="homepage" ng-show="isLogin">
+		<ul class="menu">
+			<li><a href="#/cars">Cars</a></li>
+			<li><a href="#/trains">Trains</a></li>
+			<li><a href="#/railwaystations">Railway Station</a></li>
+		</ul>
+		<hr class="" />
+		<div ng-view></div>
+	</div>
 
-    <ul class="menu">
-        <li><a href="#/cars">Cars</a></li>
-        <li><a href="#/trains">Trains</a></li>
-        <li><a href="#/railwaystations">Railway Station</a></li>
-    </ul>
-    <hr class="" />
-    <div ng-view></div>
-
-</div>
-
-<script src="resources/js/lib/angular/angular.js"></script>
-<script src="resources/js/app.js"></script>
-<script src="resources/js/services.js"></script>
-<script src="resources/js/controllers/RailwayStationController.js"></script>
-<script src="resources/js/controllers/CarController.js"></script>
-<script src="resources/js/controllers/TrainController.js"></script>
-<script src="resources/js/filters.js"></script>
-<script src="resources/js/directives.js"></script>
+	<script src="resources/js/lib/angular/angular.js"></script>
+	<script src="resources/js/app.js"></script>
+	<script src="resources/js/services.js"></script>
+	<script src="resources/js/controllers/LoginControler.js"></script>
+	<script src="resources/js/controllers/RailwayStationController.js"></script>
+	<script src="resources/js/controllers/CarController.js"></script>
+	<script src="resources/js/controllers/TrainController.js"></script>
+	<script src="resources/js/filters.js"></script>
+	<script src="resources/js/directives.js"></script>
 </body>
 </html>

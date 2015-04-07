@@ -6,6 +6,10 @@ var App = angular.module('AngularSpringApp', ['AngularSpringApp.filters', 'Angul
 
 // Declare app level module which depends on filters, and services
 App.config(['$routeProvider', function ($routeProvider) {
+	$routeProvider.when('/login', {
+	        templateUrl: 'html/index',
+	        controller: LoginController
+	    })
     $routeProvider.when('/cars', {
         templateUrl: 'cars/layout',
         controller: CarController
@@ -21,5 +25,6 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: RailwayStationController
     });
 
-    $routeProvider.otherwise({redirectTo: '/cars'});
+    $routeProvider.otherwise({redirectTo: '/index'});
 }]);
+
