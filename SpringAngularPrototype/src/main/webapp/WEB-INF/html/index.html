@@ -5,7 +5,8 @@
 <title>Service App</title>
 <link rel="stylesheet" href="resources/css/app.css" />
 <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <style>
 #header {
 	background-color: lightblue;
@@ -13,7 +14,6 @@
 
 #section {
 	height: 701px;
-	
 }
 
 #footer {
@@ -27,8 +27,12 @@
 
 </head>
 <body ng-controller="LoginController">
+	<div style="width: 100%; background-color: black;">
+		<img id="logo_easyrtc" src="resources/images/mportal_logo.png"	alt="easyrtc" />
+	</div>
 	<div id="loginPage" ng-hide="isLogin" class="login">
-		<div ng-show="error" class="error">There was a problem logging in. Please try	again.</div>
+		<div ng-show="error" class="error">There was a problem logging
+			in. Please try again.</div>
 		<form role="form" ng-submit="login()">
 			<div>
 				<label for="username">Username:</label> <input type="text"
@@ -42,25 +46,29 @@
 		</form>
 	</div>
 	<div ng-show="isLogin">
-	
-	<div id="header">
-		<div id="wrapper">
-<ul class="nav nav-tabs" role="tablist" id="myTab">
-  <li role="presentation" class="active"><a href="#/cars">Cars</a></li>
-  <li role="presentation"><a href="#/trains">Trains</a></li>
-  <li role="presentation"><a href="#/railwaystations">railwaystations</a></li>
-</ul>
-
+		<div id="header">
+			<div style="float: right; margin-top: -3%; color: white;">
+				<table>
+					<tr>
+						<td><label style="margin-left: -20%;">Welcome  {{username}}</label></td>
+						<td><a href="#/logout" ng-click="logout()" style="color: white;  padding-bottom: -26%;">logout</a></td>
+					</tr>
+				</table>
+			</div>
+			<div id="wrapper">
+				<ul class="nav nav-tabs" role="tablist" id="myTab">
+					<li role="presentation" class="active"><a href="#/cars">Cars</a></li>
+					<li role="presentation"><a href="#/trains">Trains</a></li>
+					<li role="presentation"><a href="#/railwaystations">railwaystations</a></li>
+				</ul>
+			</div>
 		</div>
+		<div id="section">
+			<div ng-view></div>
+		</div>
+
+		<div id="footer">Copyright © mportal.com</div>
 	</div>
-
-
-	<div id="section">
-		<div ng-view></div>
-	</div>
-
-	<div id="footer">Copyright © mportal.com</div>
-</div>
 	<script src="resources/js/lib/angular/angular.js"></script>
 	<script src="resources/js/app.js"></script>
 	<script src="resources/js/services.js"></script>
@@ -70,12 +78,11 @@
 	<script src="resources/js/controllers/TrainController.js"></script>
 	<script src="resources/js/filters.js"></script>
 	<script src="resources/js/directives.js"></script>
-	<script>		
-	$(".nav a").on("click", function(){
-		   $(".nav").find(".active").removeClass("active");
-		   $(this).parent().addClass("active");
+	<script>
+		$(".nav a").on("click", function() {
+			$(".nav").find(".active").removeClass("active");
+			$(this).parent().addClass("active");
 		});
-	
-</script>
+	</script>
 </body>
 </html>
