@@ -5,6 +5,8 @@
  * @constructor
  */
 var RailwayStationController = function($scope, $http) {
+    $scope.orderByField = 'id';
+	$scope.reverseSort = false;
     $scope.rs = {};
     $scope.editMode = false;
 
@@ -23,6 +25,7 @@ var RailwayStationController = function($scope, $http) {
             $scope.rs.name = '';
             $scope.rs.train.name = '';
             $scope.rs.train.speed = '';
+            $scope.rs.train.region = '';
             $scope.rs.train.diesel = false;
         }).error(function() {
             $scope.setError('Could not add a new station');
@@ -37,6 +40,7 @@ var RailwayStationController = function($scope, $http) {
             $scope.rs.name = '';
             $scope.rs.train.name = '';
             $scope.rs.train.speed = '';
+            $scope.rs.train.region = '';
             $scope.rs.train.diesel = false;
             $scope.editMode = false;
         }).error(function() {
@@ -88,8 +92,7 @@ var RailwayStationController = function($scope, $http) {
         $scope.error = true;
         $scope.errorMessage = message;
     };
-
+    
     $scope.fetchRailwayStationsList();
 
-    $scope.predicate = 'id';
 };

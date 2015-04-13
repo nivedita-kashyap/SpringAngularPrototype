@@ -2,11 +2,14 @@
 
 /**
  * TrainController
+ * 
  * @constructor
  */
 var TrainController = function($scope, $http) {
-    $scope.train = {};
-    $scope.editMode = false;
+	  $scope.orderByField = 'id';
+	  $scope.reverseSort = false;
+      $scope.train = {};
+      $scope.editMode = false;
 
     $scope.fetchTrainsList = function() {
         $http.get('trains/trainslist.json').success(function(trainList){
@@ -87,6 +90,4 @@ var TrainController = function($scope, $http) {
     };
 
     $scope.fetchTrainsList();
-
-    $scope.predicate = 'id';
 };
