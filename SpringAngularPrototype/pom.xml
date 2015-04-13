@@ -9,27 +9,28 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 
+		<!--Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.1.2.RELEASE</version>
 		</dependency>
-
+		<!--Velocity -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
 		</dependency>
-
+		<!--Fast - measured to be faster than any other Java json parser and data binder-->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.12</version>
 		</dependency>
 
-
 	</dependencies>
 	<build>
+		<!-- Customize the build war name -->
 		<finalName>AngularSpringApp</finalName>
 	</build>
 </project>

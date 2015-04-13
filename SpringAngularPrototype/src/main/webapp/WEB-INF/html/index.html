@@ -1,39 +1,31 @@
 <!doctype html>
+<!-- The ngApp directive designates the root element of the application and is typically placed near the root element of the page - e.g. on the <body> or <html> tags -->
 <html lang="en" ng-app="AngularSpringApp">
+
 <head>
 <meta charset="utf-8">
-<title>Service App</title>
+<title>Spring Angular Prototype</title>
+<!-- Used defined css -->
 <link rel="stylesheet" href="resources/css/app.css" />
+<!-- Default bootstrap theme -->
 <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<style>
-#header {
-	background-color: lightblue;
-}
-
-#section {
-	height: 701px;
-}
-
-#footer {
-	color: white;
-	clear: both;
-	text-align: center;
-	background-color: black;
-	padding: 5px;
-}
-</style>
 
 </head>
+
+
+<!-- login controller responsible for show/hide login block-->
 <body ng-controller="LoginController">
-	<div style="width: 100%; background-color: black;">
-		<img id="logo" src="resources/images/mportal_logo.png" />
-	</div>
+
+<!-- Login block -->
+<div id="loginPageId">
+	<div  class="loginLogo"><img id="logo" src="resources/images/mportal_logo.png" /></div>
 	<div id="loginPage" ng-hide="isLogin" class="login">
-		<div ng-show="error" class="error">There was a problem logging
-			in. Please try again.</div>
-		<form role="form" ng-submit="login()">
+		
+		<!-- login error block -->
+		<div ng-show="error" class="error">There was a problem logging in. Please try again.</div>
+		
+		<!-- login form -->
+		<form role="form" ng-submit="login()" id="loginForm">
 			<div>
 				<label for="username">Username:</label> <input type="text"
 					id="username" name="username" ng-model="username" />
@@ -45,13 +37,19 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
-	<div ng-show="isLogin">
+</div>
+<!-- Home block -->	
+	<div ng-show="isLogin" id="homePageId">
+	
+	<!-- Header -->
 		<div id="header">
 			<div style="float: right; margin-top: -3%; color: white;">
 				<table>
 					<tr>
-						<td><label style="margin-left: -20%;">Welcome  {{username}}</label></td>
-						<td><a href="#/logout" ng-click="logout()" style="color: white;  padding-bottom: -26%;">logout</a></td>
+						<td><label style="margin-left: -20%;">Welcome
+								{{username}}</label></td>
+						<td><a href="#/logout" ng-click="logout()"
+							style="color: white; padding-bottom: -26%;">logout</a></td>
 					</tr>
 				</table>
 			</div>
@@ -63,21 +61,35 @@
 				</ul>
 			</div>
 		</div>
+		
+		<!-- Body - Dynamically content will load based on routing -->
 		<div id="section">
 			<div ng-view></div>
 		</div>
-
+		
+		<!-- Footer -->
 		<div id="footer">Copyright © mportal.com</div>
 	</div>
+
+	<!--jquery mandatory for angular JS  -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="resources/js/lib/angular/angular.js"></script>
+	
+	<!-- initialize our app and register the modules on which it depends  -->
 	<script src="resources/js/app.js"></script>
+	
+	<!-- for Future use -->
 	<script src="resources/js/services.js"></script>
+	<script src="resources/js/filters.js"></script>
+	<script src="resources/js/directives.js"></script>
+	
+	<!-- Separate controller for each view  -->
 	<script src="resources/js/controllers/LoginControler.js"></script>
 	<script src="resources/js/controllers/RailwayStationController.js"></script>
 	<script src="resources/js/controllers/CarController.js"></script>
 	<script src="resources/js/controllers/TrainController.js"></script>
-	<script src="resources/js/filters.js"></script>
-	<script src="resources/js/directives.js"></script>
+	
+	<!--On tab Change update active css class  -->
 	<script>
 		$(".nav a").on("click", function() {
 			$(".nav").find(".active").removeClass("active");
