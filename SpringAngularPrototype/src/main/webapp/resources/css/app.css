@@ -69,3 +69,34 @@
 {
 	width: 100%; background-color: black;
 }
+
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover {
+  color: #555;
+  cursor: default;
+  background-color: #B6DBF6;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs>li>a {
+  color : white;
+  
+}
+
+.nav-tabs>li {
+ background-color: #094E80 !important;
+  margin-left: 1px;
+}
+
+.carMenu {
+	background-color: #B6DBF6;
+	margin: -20px 0px 20px 0px;
+	width: 250px;
+	height: 30px;
+}
+
+.carMenu li {
+	display: inline;
+	padding: 9px;
+	line-height: 30px;
+}
